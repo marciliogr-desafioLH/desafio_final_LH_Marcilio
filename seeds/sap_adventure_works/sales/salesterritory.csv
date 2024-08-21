@@ -1,4 +1,4 @@
-"territoryid","name","countryregioncode","group","salesytd","saleslastyear","costytd","costlastyear","rowguid","modifieddate"
+"territoryid","name","countryregioncode","groups","salesytd","saleslastyear","costytd","costlastyear","rowguid","modifieddate"
 1,Northwest,US,North America,7887186.7882,3298694.4938,0,0,"43689a10-e30b-497f-b0de-11de20267ff7",2008-04-30 00:00:00.000
 2,Northeast,US,North America,2402176.8476,3607148.9371,0,0,"00fb7309-96cc-49e2-8363-0a1ba72486f2",2008-04-30 00:00:00.000
 3,Central,US,North America,3072175.118,3205014.0767,0,0,df6e7fd8-1a8d-468c-b103-ed8addb452c1,2008-04-30 00:00:00.000
