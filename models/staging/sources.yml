@@ -1,0 +1,135 @@
+version: 2
+
+sources:
+  - name: erp
+    description: 'This is the adventureworks erp snowflake database replica.'
+    database: desafio_final_LH
+    schema: sap_adw
+    tables: 
+      - name: address
+        description: 'Dados da tabela Address.'
+        columns:
+          - name: pk_address_id
+            description: 'chave primária da tabela address.'
+            tests:
+              - unique
+              - not_null
+          - name: fk_state_province_id
+            description: 'chave estrangeira da tabela address.'
+            tests:
+              - not_null
+      - name: countryregion
+        description: 'Dados da tabela countryregion.'
+        columns:
+          - name: pk_country_region_code
+            description: 'chave primária da tabela countryregion.'
+            tests:
+              - unique
+              - not_null              
+      - name: creditcard
+        description: 'Dados da tabela CreditCard.'
+        columns:
+          - name: pk_credit_card_id
+            description: 'chave primária da tabela creditcard.'
+            tests:
+              - unique
+              - not_null
+      - name: customer
+        description: 'Dados da tabela Customer.'
+        columns:
+          - name: pk_customer_id
+            description: 'chave primária da tabela customer.'
+            tests:
+              - unique
+              - not_null
+      - name: person
+        description: 'Dados da tabela Person.'
+        columns:
+          - name: pk_person_business_entity_id
+            description: 'chave primária da tabela person.'
+            tests:
+              - unique
+              - not_null
+      - name: product
+        description: 'Dados da tabela Product.'
+        columns:
+          - name: pk_product_id
+            description: 'chave primária da tabela product.'
+            tests:
+              - unique
+              - not_null
+      - name: salesorderdetail
+        description: 'Dados da tabela SalesOrderDetail.'
+        columns:
+          - name: pk_sales_order_detail_id
+            description: 'chave primária da tabela salesorderdetail.'
+            tests:
+              - unique
+              - not_null
+          - name: fk_sales_order_id
+            description: 'chave estrangeira da tabela salesorderdetail.'
+            tests:
+              - not_null
+      - name: salesorderheader
+        description: 'Dados da tabela SalesOrderHeader.'
+        columns:
+          - name: pk_sales_order_id
+            description: 'chave primária da tabela salesorderheader.'
+            tests:
+              - unique
+              - not_null
+      - name: salesorderheadersalesreason
+        description: 'Dados da tabela SalesOrderHeaderSalesReason.'
+        columns:
+          - name: fk_sales_order_id
+            description: 'chave primária da tabela salesorderheadersalesreason.'
+            tests:
+              - not_null
+          - name: fk_sales_reason_id
+            description: 'chave estrangeira da tabela salesorderheadersalesreason.'
+            tests:
+              - not_null
+      - name: salesreason
+        description: 'Dados da tabela SalesReason.'
+        columns:
+          - name: pk_sales_reason_id
+            description: 'chave primária da tabela salesreason.'
+            tests:
+              - unique
+              - not_null
+      - name: stateprovince
+        description: 'Dados da tabela StateProvince.'
+        columns:
+          - name: pk_state_province_id
+            description: 'chave primária da tabela stateprovince.'
+            tests:
+              - unique
+              - not_null
+          - name: fk_country_region_code
+            description: 'chave estrangeira da tabela stateprovince.'
+            tests:
+              - not_null
+      - name: store
+        description: 'Dados da tabela Store.'
+        columns:
+          - name: pk_business_entity_id
+            description: 'chave primária da tabela store.'
+            tests:
+              - unique
+              - not_null
+      - name: emailaddress
+        description: 'Dados da tabela EmailAddress.'
+        columns:
+          - name: pk_email_address_id
+            description: 'chave primária da tabela emailaddress.'
+            tests:
+              - unique
+              - not_null
+      - name: salesterritory
+        description: 'Dados da tabela SalesTerritory.'
+        columns:
+          - name: pk_territory_id
+            description: 'chave primária da tabela salesterritory.'
+            tests:
+              - unique
+              - not_null
