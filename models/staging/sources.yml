@@ -141,3 +141,12 @@ sources:
             tests:
               - unique
               - not_null
+      - name: salesperson
+        description: 'Dados da tabela sales person.'
+        columns:
+          - name: pk_sales_person_id
+            description: 'chave primária da tabela sales person.'
+            tests:
+              - unique
+              - not_null
+
