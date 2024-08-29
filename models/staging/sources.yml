@@ -133,3 +133,11 @@ sources:
             tests:
               - unique
               - not_null
+      - name: employee
+        description: 'Dados da tabela Employee.'
+        columns:
+          - name: pk_employee_id
+            description: 'chave primária da tabela employee.'
+            tests:
+              - unique
+              - not_null
