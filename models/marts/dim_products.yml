@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: complete_table
+    description: 'Tabela que contém informações combinadas de produtos a partir de pedidos de venda, incluindo uma chave surrogate gerada para os produtos.'
+    columns:
+      - name: product_sk
+        description: 'Chave surrogate da tabela'
+        tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: 'ID do produto associado ao pedido de venda.'
+        tests:
+          - not_null
+      - name: name
+        description: 'Nome do produto associado ao ID do produto.'
+        tests:
+          - not_null

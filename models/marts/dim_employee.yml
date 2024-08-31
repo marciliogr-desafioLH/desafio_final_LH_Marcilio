@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: complete_table
+    description: 'Tabela que combina informações de empregados e vendedores, com uma chave substituta gerada para os empregados.'
+    columns:
+      - name: employee_sk
+        description: 'Chave surrogate da tabela'
+        tests:
+          - unique
+          - not_null
+      - name: pk_employee_id
+        description: 'ID do funcionário.'
+        tests:
+          - not_null
+      - name: job_title
+        description: 'Cargo do empregado.'
+        tests:
+          - not_null
+      - name: gender
+        description: 'Gênero do empregado.'
+        tests:
+          - not_null
+      - name: hire_date
+        description: 'Data de contratação do empregado.'
+        tests:
+          - not_null
+      - name: pk_sales_person_id
+        description: 'ID do vendedor.'
+        tests:
+          - not_null
+      - name: territory_id
+        description: 'ID do território de vendas associado ao vendedor.'
+      - name: sales_quota
+        description: 'Meta de vendas atribuída ao vendedor.'
+      - name: bonus
+        description: 'Bônus recebido pelo vendedor.'
+      - name: sales_ytd
+        description: 'Vendas realizadas pelo vendedor até a data atual do ano.'
+      - name: sales_last_year
+        description: 'Vendas realizadas pelo vendedor no último ano.'

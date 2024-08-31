@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: complete_table
+    description: 'Tabela que combina dados de clientes, pessoas, lojas e territórios de vendas, com uma chave surrogate para o cliente.'
+    columns:
+      - name: customer_sk
+        description: 'Chave surrogate da tabela'
+        tests:
+          - unique
+          - not_null
+      - name: pk_customer_id
+        description: 'Chave primária do cliente.'
+        tests:
+          - unique
+          - not_null
+      - name: pk_person_business_entity_id
+        description: 'Chave primária da entidade pessoa associada ao cliente.'
+        tests:
+          - not_null
+      - name: pk_business_entity_id
+        description: 'Chave primária da loja associada ao cliente.'
+        tests:
+          - not_null
+      - name: pk_territory_id
+        description: 'Chave primária do território de vendas associado ao cliente.'
+        tests:
+          - not_null
+      - name: person_fullname
+        description: 'Nome completo da pessoa associada ao cliente.'
+
+      - name: store_name
+        description: 'Nome da loja associada ao cliente.'
+
+      - name: territory_name
+        description: 'Nome do território de vendas associado ao cliente.'

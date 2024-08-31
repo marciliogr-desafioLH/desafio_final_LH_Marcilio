@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: complete_table
+    description: "Tabela completa que junta informações de vendas com dados de cartões de crédito."
+    columns:
+      - name: creditcard_sk
+        description: "Chave surrogate da tabela."
+        tests:
+          - unique
+          - not_null
+      - name: fk_creditcard_id
+        description: "Identificador do cartão de crédito associado à venda."
+        tests:
+          - not_null
+      - name: card_type
+        description: "Tipo do cartão de crédito, proveniente da tabela de cartões de crédito."
