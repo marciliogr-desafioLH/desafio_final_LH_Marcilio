@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: complete_table
+    description: 'Tabela que contém informações combinadas, trazendo a relação de locais'
+    columns:
+      - name: ship_sk
+        description: 'Chave surrogate da tabela'
+        tests:
+          - unique
+          - not_null
+      - name: ship_to_address_id
+        description: 'ID do endereço de entrega associado ao pedido de venda.'
+        tests:
+          - not_null
+      - name: territory_name
+        description: 'Nome do território de vendas associado ao estado/província do endereço de entrega.'
+
+      - name: state_province_code
+        description: 'Código do estado/província associado ao endereço de entrega.'
+
+      - name: city
+        description: 'Cidade associada ao endereço de entrega.'
+
+      - name: postal_code
+        description: 'Código postal associado ao endereço de entrega.'

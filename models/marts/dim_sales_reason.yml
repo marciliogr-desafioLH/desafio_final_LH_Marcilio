@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: complete_table
+    description: 'Tabela que agrega os motivos de vendas associados a cada pedido de venda, com uma chave surrogate gerada para identificar os pedidos.'
+    columns:
+      - name: sales_order_sk
+        description: 'Chave surrogate da tabela'
+        tests:
+          - unique
+          - not_null
+      - name: fk_sales_order_id
+        description: 'ID do pedido de venda ao qual os motivos de venda estão associados.'
+        tests:
+          - not_null
+      - name: reason_name_aggregated
+        description: 'Motivos de venda agregados para cada pedido de venda'
