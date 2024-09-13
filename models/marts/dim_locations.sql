@@ -1,6 +1,6 @@
 with stg_sales_order_header as (
     select
-        ship_to_address_id
+       distinct(ship_to_address_id)
     from {{ref('stg_sales_order_header')}}
 ),
 
@@ -14,12 +14,9 @@ stg_state_province as (
     from {{ref('stg_state_province')}}
 ),
 
-stg_sales_territory as (
-    select
-        pk_territory_id,
-        name,
-        country_region_code
-    from {{ref('stg_sales_territory')}}
+stg_country_region as (
+    select *
+    from {{ref('stg_country_region')}}
 ),
 
 complete_table as (
@@ -29,14 +26,14 @@ complete_table as (
                 )
             }} as ship_sk -- genarate surrogate key
         , soh.ship_to_address_id
-        , st.name as territory_name
-        , sp.state_province_code
+        , cr.name as country
+        , sp.name as state
         , a.city
-        , a.postal_code
+        --, a.postal_code
     from stg_sales_order_header as soh
     left join stg_address as a on soh.ship_to_address_id = a.pk_address_id
     left join stg_state_province as sp on a.fk_state_province_id = sp.pk_state_province_id
-    left join stg_sales_territory as st on sp.fk_territory_id = st.pk_territory_id
+    left join stg_country_region as cr on sp.fk_country_region_code = cr.pk_country_region_code
 )
 
 select * 

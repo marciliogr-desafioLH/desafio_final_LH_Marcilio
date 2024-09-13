@@ -9,6 +9,7 @@ with
             , cast(specialofferid as int) as special_offer_id
             , cast(unitprice as float) as unit_price
             , cast(unitpricediscount as float) as unit_price_discount
+            , (unitprice * (1 - unitpricediscount) * orderqty) subtotal
             --unused columns:
             --rowguid
             --modifieddate
