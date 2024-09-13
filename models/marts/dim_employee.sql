@@ -24,9 +24,9 @@ complete_table as (
         , stg_sales_person.bonus
         , stg_sales_person.sales_ytd
         , stg_sales_person.sales_last_year
-    from stg_employee
-    left join stg_sales_person
-        on stg_sales_person.pk_sales_person_id = stg_employee.pk_employee_id
+    from stg_sales_person
+    left join stg_employee
+        on stg_employee.pk_employee_id = stg_sales_person.pk_sales_person_id
 )
 
 select *
