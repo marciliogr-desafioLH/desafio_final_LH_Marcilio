@@ -1,25 +1,12 @@
-# Indicium Academy
+# Projeto Adventure Works
 
-Repositório para ser utilizado no desafio para a obtenção da certificação de Analytics Engineer by Indicium. Faça o fork deste repositório e o utilize durante o desafio para fazer a insgestão das tabelas do SAP do Adventure Works.
+Este projeto visa transformar e modelar dados do conjunto AdventureWorks, hospedado no Snowflake, preparando-os para análises e visualizações inteligentes. AdventureWorks é um banco de dados de amostra da Microsoft, que simula as operações de uma empresa de varejo, abrangendo vendas, gerenciamento de produtos e interações com clientes.
 
-## Instruções
+As transformações neste projeto focam em:
 
-Todas as tabelas do banco fonte do SAP da Adventure Works serão carregadas como seeds pelo dbt. Os arquivos .csv com os dados já estão na pasta de seeds.
+- **Modelagem de Dados**: Construção de dimensões robustas, além de tabelas de fatos e agregadas, para dar suporte a diversas análises de negócios.
+- **Qualidade dos Dados**: Garantia da integridade dos dados por meio de testes e validações rigorosas.
+- **Otimização de Desempenho**: Simplificação de consultas e modelos para um processamento eficiente e tempos de resposta rápidos.
+- **Prontidão para Visualização**: Estruturação dos dados de forma que facilite a integração com ferramentas de visualização para relatórios e dashboards.
 
-Para fazer o carregamento de todas as tabelas usem o comando:
-- `dbt seed`
-
-Para carregar uma tabela especifíca utilizem o comando
-- `dbt seed -s nome_do_csv`
-
-### Problemas comuns
-
-Em caso a linha de comando do dbt fique com o status de estar sempre carregando, ou, o job do comando `dbt seed` fique rodando indefinitivamente mesmo após as 64 tabelas forem carregadas você precisará reiniciar o terminal. Para isso, clique nos três pontos no canto inferior direito ou no lado direito da linha de comando e escolha a opção `Restart IDE`.
-
-
-## Recursos:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](http://community.getbdt.com/) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+Este projeto serve como uma camada fundamental para a inteligência de negócios, permitindo que as partes interessadas obtenham insights valiosos a partir de dados bem estruturados e confiáveis.
