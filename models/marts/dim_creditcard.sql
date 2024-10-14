@@ -13,7 +13,7 @@ with stg_sales_order_header as (
 , complete_table as (
     select
         {{ dbt_utils.generate_surrogate_key(
-                    ['fk_creditcard_id']
+                    ['fk_creditcard_id','card_number']
                 )
             }} as creditcard_sk -- genarate surrogate key
         , stg_sales_order_header.fk_creditcard_id

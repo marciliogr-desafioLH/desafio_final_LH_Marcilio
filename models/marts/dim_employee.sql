@@ -11,7 +11,7 @@ stg_sales_person as (
 complete_table as (
     select
         {{ dbt_utils.generate_surrogate_key(
-                    ['pk_employee_id']
+                    ['pk_employee_id','pk_sales_person_id']
                 )
             }} as employee_sk -- genarate surrogate key
         , stg_employee.pk_employee_id

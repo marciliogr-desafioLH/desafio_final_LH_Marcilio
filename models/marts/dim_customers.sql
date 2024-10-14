@@ -21,7 +21,7 @@ with stg_customer as (
 , complete_table as (
     select
         {{ dbt_utils.generate_surrogate_key(
-                    ['pk_customer_id']
+                    ['pk_customer_id','pk_person_business_entity_id']
                 )
             }} as customer_sk -- genarate surrogate key
         , customer.pk_customer_id
