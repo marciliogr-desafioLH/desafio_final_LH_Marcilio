@@ -2,34 +2,66 @@ version: 2
 
 models:
   - name: date_range
-    description: 'Tabela que contém uma faixa de datas de 2008-01-01 a 2025-12-31, incluindo informações detalhadas sobre cada data, como ano, mês, dia, nome do mês, nome do dia e trimestre.'
+    description: 'Tabela que contém uma faixa de datas de 2010-01-01 a 2016-01-01, incluindo informações detalhadas sobre cada data, como dia da semana, número da semana, dia do mês, mês, trimestre, e se a data é um dia útil ou feriado.'
     columns:
       - name: date
         description: 'Data no formato YYYY-MM-DD.'
         tests:
           - unique
           - not_null
-      - name: year
-        description: 'Ano extraído da data.'
+      - name: day_of_week
+        description: 'Número que representa o dia da semana.'
         tests:
           - not_null
-      - name: month
-        description: 'Mês extraído da data (número entre 1 e 12).'
+      - name: week_number
+        description: 'Número da semana do ano (1 a 53).'
         tests:
           - not_null
-      - name: day
-        description: 'Dia extraído da data (número entre 1 e 31).'
+      - name: day_of_month
+        description: 'Dia do mês (1 a 31).'
         tests:
           - not_null
-      - name: month_name
-        description: 'Nome do mês correspondente à data.'
+      - name: month_number
+        description: 'Mês extraído da data (1 a 12).'
         tests:
           - not_null
-      - name: day_name
-        description: 'Nome do dia da semana correspondente à data.'
+      - name: month_date
+        description: 'Nome completo do mês correspondente à data.'
+        tests:
+          - not_null
+      - name: month_name_abbr
+        description: 'Nome abreviado do mês correspondente à data.'
+        tests:
+          - not_null
+      - name: month_year
+        description: 'Nome do mês abreviado junto com o ano (ex: Jan - 2010).'
         tests:
           - not_null
       - name: quarter
         description: 'Trimestre correspondente à data (número entre 1 e 4).'
+        tests:
+          - not_null
+      - name: year
+        description: 'Ano extraído da data.'
+        tests:
+          - not_null
+      - name: day_of_year
+        description: 'Dia do ano (1 a 366).'
+        tests:
+          - not_null
+      - name: week_of_month
+        description: 'Número da semana do mês (1 a 5).'
+        tests:
+          - not_null
+      - name: season
+        description: 'Estação do ano correspondente à data.'
+        tests:
+          - not_null
+      - name: is_business_day
+        description: 'Indica se a data é um dia útil.'
+        tests:
+          - not_null
+      - name: is_holiday
+        description: 'Indica se a data é um feriado.'
         tests:
           - not_null
