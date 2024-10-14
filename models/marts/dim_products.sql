@@ -6,7 +6,7 @@ with stg_product as (
 complete_table as (
     select
         {{ dbt_utils.generate_surrogate_key(
-                    ['pk_product_id']
+                    ['pk_product_id','product_number']
                 )
             }} as product_sk -- genarate surrogate key
         , stg_product.pk_product_id

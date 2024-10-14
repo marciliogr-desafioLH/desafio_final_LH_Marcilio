@@ -59,7 +59,7 @@ with
     final as (
         select
             {{ dbt_utils.generate_surrogate_key(
-                        ['pk_order_detail_id']
+                        ['sales_sk','pk_order_detail_id']
                     )
                 }} as sales_fact_sk
             , int_orders_details.sales_sk as fk_sales

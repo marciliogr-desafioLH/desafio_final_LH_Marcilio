@@ -22,7 +22,7 @@ stg_country_region as (
 complete_table as (
     select
         {{ dbt_utils.generate_surrogate_key(
-                    ['ship_to_address_id']
+                    ['ship_to_address_id','pk_address_id']
                 )
             }} as ship_sk -- genarate surrogate key
         , soh.ship_to_address_id
