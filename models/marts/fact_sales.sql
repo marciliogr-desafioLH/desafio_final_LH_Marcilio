@@ -1,5 +1,4 @@
 with
-    -- Load dimension tables
     cliente as (
         select 
             *
@@ -55,7 +54,6 @@ with
         from {{ ref("int_orders_details") }}
     ),
 
-    -- Join tables and calculate metrics
     final as (
         select
             {{ dbt_utils.generate_surrogate_key(
@@ -84,12 +82,15 @@ with
             , dim_customers.person_fullname as customer
             , dim_customers.store_name as store
             , dim_sales_reason.reason_name_aggregated
+            , dim_products.name as product_name
+            , dim_locations.country
         from int_orders_details
         left join dim_customers on int_orders_details.fk_customer = dim_customers.pk_customer_id
         left join dim_sales_reason on int_orders_details.fk_order = dim_sales_reason.fk_sales_order_id
+        left join dim_products on int_orders_details.fk_product = dim_products.pk_product_id
+        left join dim_locations on int_orders_details.fk_shipping_address = dim_locations.ship_to_address_id
     ),
 
-    -- Organize final columns for output
     organizar_colunas as (
         select
             sales_fact_sk
@@ -102,12 +103,12 @@ with
             , fk_salesperson
             , fk_shipping_address
             , fk_territory
+            , product_name
+            , country
             , order_date
             , ship_date            
             , customer
-            --, tipo_pessoa
             , purchase_order_number
-            --, pedido_online
             , order_quantity
             , reason_name_aggregated
             , unit_price
@@ -116,11 +117,10 @@ with
             , allocated_freight
             , allocated_tax
             , gross_total
-            --, nome_status_pedido
             , store
+
         from final
     )
 
--- Final fact table output
 select *
 from organizar_colunas
